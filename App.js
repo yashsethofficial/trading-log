@@ -1,20 +1,14 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-
+import React from 'react';
+import { Provider as PaperProvider } from 'react-native-paper';
+import Navigation from './Navigation';
+import { customDarkTheme } from './customtheme';
+import { TradingProvider } from './context/TradingContext';
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <PaperProvider theme={customDarkTheme}>
+      <TradingProvider>
+        <Navigation theme={customDarkTheme} />
+      </TradingProvider>
+    </PaperProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
